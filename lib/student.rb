@@ -50,7 +50,10 @@ class Student
       FROM students
     SQL
 
-    DB[:conn].execute(sql)
+    row = DB[:conn].execute(sql)
+    rows.map do |row|
+      self.new_from_db(row)
+    end
   end
 
   def save
