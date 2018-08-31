@@ -62,22 +62,6 @@ class Student
       arr << student.grade == 10
     end
     arr.take(x)
-    # sql = <<-SQL
-    #   SELECT * FROM students WHERE grade = 10 ORDER BY grade limit ?;
-    # SQL
-    #
-    # DB[:conn].execute(sql)
-  end
-   def self.first_student_in_grade_10
-    # student = self.all.find do |student|
-    #   student.grade == 10
-    # end
-    # student
-    sql = <<-SQL
-      SELECT * FROM students WHERE grade = 10 limit 1;
-    SQL
-     rows = DB[:conn].execute(sql)
-    self.new_from_db(rows.first)
   end
    def self.all_students_in_grade_X(x)
     arr = []
